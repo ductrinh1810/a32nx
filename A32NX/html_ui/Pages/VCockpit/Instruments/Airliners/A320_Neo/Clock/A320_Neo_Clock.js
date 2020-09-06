@@ -19,7 +19,8 @@ class A320_Neo_Clock extends BaseAirliners {
     Update() {
         super.Update();
         if (this.CanUpdate()) {
-            if (SimVar.GetSimVarValue("L:PUSH_CHRONO_CHR", "Bool") == 1) {
+            console.log(SimVar.GetSimVarValue("L:PUSH_AUTOPILOT_CHRONO_L", "Bool"));
+            if (SimVar.GetSimVarValue("L:PUSH_CHRONO_CHR", "Bool") == 1 || SimVar.GetSimVarValue("L:PUSH_AUTOPILOT_CHRONO_L", "Bool") == 1) {
                 this.chronoValue += this.deltaTime / 1000;
             }
 
@@ -30,7 +31,7 @@ class A320_Neo_Clock extends BaseAirliners {
 
             if (this.topSelectorElem) {
                 let ChronoTime = this.getChronoTime();
-                if (SimVar.GetSimVarValue("L:PUSH_CHRONO_CHR", "Bool") == 0 && ChronoTime == "00:00") {
+                if ((SimVar.GetSimVarValue("L:PUSH_CHRONO_CHR", "Bool") == 0 || SimVar.GetSimVarValue("L:PUSH_AUTOPILOT_CHRONO_L", "Bool") == 0) && ChronoTime == "00:00") {
                     this.topSelectorElem.textContent = ""
                 } else {
                     this.topSelectorElem.textContent = ChronoTime

@@ -1092,6 +1092,19 @@
   	</UseTemplate>
 </Template>
 
+<Template Name = "ASOBO_AIRBUS_Chronometer_L_Button">
+	<DefaultTemplateParameters>
+		<HELPID/>
+		<MouseFlags>LeftSingle</MouseFlags>
+		<CURSOR>Grab</CURSOR>
+	</DefaultTemplateParameters>
+
+	<UseTemplate Name="ASOBO_AIRLINER_SubNodes_Setter_Template">
+		<TEMPLATE_TO_CALL>ASOBO_GT_Push_Button_Airliner</TEMPLATE_TO_CALL>
+		<LEFT_SINGLE_CODE>(L:PUSH_AUTOPILOT_CHRONO_L) ! (>L:PUSH_AUTOPILOT_CHRONO_L)</LEFT_SINGLE_CODE>
+  	</UseTemplate>
+</Template>
+
 <Template Name="ASOBO_AIRLINER_ADIRS_LIGHT_Template">
 	<DefaultTemplateParameters>
 		<ID>1</ID>
